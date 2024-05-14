@@ -1,0 +1,23 @@
+html {
+  --header-height: 45px;
+  --theme-color: #55b344;
+}
+/* 高度100% */
+.he_fill {
+  height: 100%;
+}
+/* 滚动条 */
+.scroll_box {
+  height: 100%;
+  overflow-y: auto;
+}
+.scroll_box::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll_box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.scroll_box::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}

@@ -1,0 +1,70 @@
+.article_container {
+  width: 800px;
+  max-width: 800px;
+  padding: 20px 16px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+}
+.article_container .article_list_item {
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(235, 235, 200, 0.5);
+  margin-bottom: 12px;
+}
+.article_container .article_box {
+  display: flex;
+  align-items: flex-start;
+  background-color: #fff;
+}
+.article_container .article_box p {
+  flex: 3;
+  line-height: 24px;
+  font-size: 14px;
+  color: #9a9a9a;
+  margin: 6px 16px 12px 10px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.article_container .article_box img {
+  width: 110px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.article_container .article_header {
+  font-size: 21px;
+  font-weight: 500;
+  margin-top: 12px;
+  margin-left: 10px;
+}
+.article_container .user {
+  display: flex;
+  align-items: center;
+}
+.article_container .user .user_info {
+  margin-left: 12px;
+}
+.article_container .user_info .user_name {
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+.article_container .user_info .description {
+  color: #8a8a8a;
+}
+.article_container .tool_bar {
+  margin: 0px 0 0 10px;
+  user-select: none;
+}
+.article_container .tool_bar > span {
+  margin-right: 20px;
+  cursor: pointer;
+}
+.article_container .tool_bar .num {
+  font-style: normal;
+  display: inline-block;
+  line-height: 14px;
+  overflow: hidden;
+  font-size: 14px;
+  color: #8a8a8a;
+}
