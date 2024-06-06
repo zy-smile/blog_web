@@ -1,0 +1,59 @@
+.count-container {
+  width: 300px;
+
+  .title_box {
+    height: 80px;
+    background-color: #fff;
+    border-radius: 4px;
+    font-size: 18px;
+    line-height: 80px;
+    color: var(--theme-color);
+    padding: 0 20px;
+    overflow: hidden;
+
+    .ant-btn {}
+
+    .start_list {
+      display: inline-flex;
+      flex-direction: column;
+
+      span {
+        display: block;
+      }
+    }
+
+    .count_img {
+      display: none;
+      font-size: 18px;
+      margin-left: 10px;
+      font-weight: bold;
+      height: 20px;
+      transition: all 0.3s;
+
+      &.count-animation {
+        display: inline-block;
+        animation: countClick 1s linear;
+      }
+
+      @keyframes countClick {
+        0% {
+          display: none;
+          transform: translate(0, 0) scale(1.2);
+          opacity: 1;
+        }
+
+        80% {
+          display: inline-block;
+          transform: translate(60px, -30px) scale(1);
+          opacity: 0.4;
+        }
+
+        100% {
+          display: none;
+          opacity: 0;
+          transform: translateY(60px, -30px) scale(1);
+        }
+      }
+    }
+  }
+}

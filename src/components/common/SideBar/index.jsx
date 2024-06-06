@@ -1,50 +1,51 @@
 
-import './sidebar.less'
-import React from 'react'
+import React, { useState } from 'react'
 import { Menu, Layout, theme } from 'antd'
-
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-
+import $axios from '../../../server/request'
+import { FileOutlined,UserOutlined, } from '@ant-design/icons';
+import { useEffect } from 'react';
+import './sidebar.less'
  const { Sider} = Layout
 
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-  (icon, index) => {
-    const key = String(index + 1);
-
-    return {
-      key: `sub${key}`,
-      icon: React.createElement(icon),
-      label: `subnav ${key}`,
-      children: new Array(4).fill(null).map((_, j) => {
-        const subKey = index * 4 + j + 1;
-        return {
-          key: subKey,
-          label: `option${subKey}`,
-        };
-      }),
-    };
-  },
-);
-
 function Sidebar() {
-     const {
+  const [menuList, setMenuList] = useState([])
+  const {
     token: { colorBgContainer},
   } = theme.useToken();
-
+  
+  useEffect(() => {
+      //初始化函数
+      getList(setMenuList)
+  },[])
+ 
+  function selectClick({ item, key, keyPath, selectedKeys, domEvent }) {
+      console.log({ item, key, keyPath, selectedKeys, domEvent })
+  }
     return (
-      <div className="sidebar_container">
-          
+        <div className="sidebar_container">
               <Sider style={{ background: colorBgContainer }} width={200}>
                 <Menu
                   mode="inline"
                   defaultSelectedKeys={['1']}
                   defaultOpenKeys={['sub1']}
                   style={{ height: '100%' }}
-                  items={items2}
+                  items={menuList}
+                  onSelect={selectClick}
                 />
               </Sider>
       </div>
     )
 }
-
+function getList(cb) {
+   $axios.get('/src/json/sidebar.json').then(res => {
+   let data = res.data
+    if(data && data instanceof Array) {
+      let newList = data.map((item,index) => {
+        item.icon = React.createElement([FileOutlined,UserOutlined][index])
+        return item
+      })
+      cb && cb(newList)
+    }
+  })
+}
 export default Sidebar
