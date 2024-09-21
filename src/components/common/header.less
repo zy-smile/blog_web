@@ -5,24 +5,26 @@
   height: 45px;
   background-color: var(--theme-color);
   overflow: hidden;
+
+  .logo {
+    width: 30px;
+    margin-left: 12px;
+    animation: rotate 10s linear infinite alternate;
+  }
+
+  .title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
 }
 
-.logo {
-  width: 30px;
-  margin-left: 12px;
-  animation: rotate 10s linear infinite alternate;
-}
 
-.title {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
-  color: #fff;
-  font-weight: 700;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
 
 @keyframes rotate {
   0% {

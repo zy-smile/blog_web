@@ -5,24 +5,22 @@ import axios from 'axios'
 // axios.defaults.headers
 
 const instance = axios.create({
-  baseURL: '/',
   timeout: 6000,
   headers: {
-    "Content-Type": "appliction/json"
-  },
-  withCredentials: false,
+    'Content-Type': 'application/json'
+  }
 })
 
-instance.interceptors.request.use(function(config) {
+instance.interceptors.request.use(function (config) {
   return config
-},function(error) {
+}, function (error) {
   return Promise.reject(error)
 })
 
-instance.interceptors.response.use(function(response) {
+instance.interceptors.response.use(function (response) {
   return response
-},function(error) {
-    return Promise.reject(error)
+}, function (error) {
+  return Promise.reject(error)
 })
 
 export default instance

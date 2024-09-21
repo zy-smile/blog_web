@@ -1,16 +1,5 @@
 import { Avatar } from 'antd';
-import { LikeOutlined,EyeOutlined } from '@ant-design/icons'
-function ArticleItem({item={},index,onClick,update}) {
-function starHandle() {
-    let articleObj = item
-    if (articleObj.startFlag) {
-        articleObj.startNum = articleObj.startNum - 1
-    } else {
-        articleObj.startNum = articleObj.startNum + 1
-    }
-    articleObj.startFlag = !articleObj.startFlag
-    update(articleObj,index)
-}
+ function ArticleItem({item={},index,onClick,update}) {
   return (
     <>
        <li className="article_list_item">
@@ -28,14 +17,7 @@ function starHandle() {
             <img src={item.img} alt="" />
           </div>
            <div className="tool_bar">
-                <span onClick={starHandle}>
-                    <LikeOutlined style={{fontSize: '18px',color: item.startFlag ? '#55b3ee' : '#8a8a8a'}}/>
-                    &nbsp;<i className="num">{item.startNum}</i>
-                </span>
-               <span>
-                   <EyeOutlined style={{fontSize: '18px',color: '#8a8a8a'}}/>
-                   &nbsp;<i className="num">{item.readNum}</i>
-               </span>
+              
 
            </div>
        </li>
